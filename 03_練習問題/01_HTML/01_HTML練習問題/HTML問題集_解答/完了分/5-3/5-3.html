@@ -1,0 +1,49 @@
+<html>
+
+<head>
+	<!-- htmlファイルと同じフォルダにあるjQuery.jsを読み込む -->
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+	<!-- 文字コードをUTF-8に設定（文字化け防止） -->
+	<meta charset="UTF-8">
+	<!-- タイトル -->
+	<title>練習問題</title>
+
+	<style>
+    	/* ここにCSSを書く */
+	</style>
+</head>
+
+<body>
+	<!-- ここに画面に表示する内容を書く -->
+	<input type="text" id="text1">
+	＋
+	<input type="text" id="text2">
+	<button id="button">ボタン</button>
+	<div id="test"></div>
+
+
+	<script>
+		var ans;
+		
+		//ボタンを押したら、
+		$("#button").on("click",function(){
+			var num1 = $("#text1").val();  //text1を取得してtext内に表示
+			var num2 = $("#text2").val();  //text2を取得してtext内に表示
+
+			var num1 = Number(num1);
+			var num2 = Number(num2);
+
+			ans = num1 + num2;
+
+			$("#test").append(ans);
+
+		});
+
+
+
+
+		
+	</script>
+</body>
+
+</html>

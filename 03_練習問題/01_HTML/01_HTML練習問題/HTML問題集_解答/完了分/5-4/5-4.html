@@ -1,0 +1,54 @@
+<html>
+
+<head>
+	<!-- htmlファイルと同じフォルダにあるjQuery.jsを読み込む -->
+	<script type="text/javascript" src="../common/jQuery.js"></script>
+	<!-- 文字コードをUTF-8に設定（文字化け防止） -->
+	<meta charset="UTF-8">
+	<!-- タイトル -->
+	<title>練習問題</title>
+
+	<style>
+    	/* ここにCSSを書く */
+	</style>
+</head>
+
+<body>
+	<!-- ここに画面に表示する内容を書く -->
+	<input type="text" id="text1">
+	＋
+	<input type="text" id="text2">
+	<button id="button">ボタン</button>
+	<div id="test"></div>
+
+
+	<script>
+	    // ここにJavaScriptを書く
+		var ans;
+		
+		$("#button").on("click",function(){
+			var num1 = $("#text1").val();  //text1を取得
+			var num2 = $("#text2").val();  //text2を取得
+
+			num1 = Number(num1);  //キャスト
+			num2 = Number(num2);  //キャスト
+
+
+			//textboxに入力された値が数値なのか数値以外なのかisNaNで判断。
+			//if文の条件式は必ず論理演算でなければいけないわけではない。
+			//今回の場合は、isNaN自体が条件式のため。
+
+			if(isNaN(num1) || isNaN(num2)){    //num1 または num2 の値が数値以外の場合true
+				alert("数値以外が入力されています。");
+			}else {
+				ans = num1 + num2;
+				console.log(ans);
+			}
+
+			$("#test").append(ans);	
+
+		});
+	</script>
+</body>
+
+</html>

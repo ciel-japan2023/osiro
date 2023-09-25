@@ -1,0 +1,92 @@
+<html>
+
+<head>
+	<!-- htmlファイルと同じフォルダにあるjQuery.jsを読み込む -->
+	<script type="text/javascript" src="../common/jQuery.js"></script>
+	<!-- 文字コードをUTF-8に設定（文字化け防止） -->
+	<meta charset="UTF-8">
+	<!-- タイトル -->
+	<title>数字当てゲーム</title>
+
+	<style>
+    	/* ここにCSSを書く */
+
+		#top{
+			margin-bottom: 5%;
+		}
+
+		#history{
+			width: 50%;
+			height: 50%;
+			overflow-y: scroll;
+		}
+
+		#status{
+			margin-top: 5%;
+		}
+	</style>
+</head>
+
+<body>
+    <!-- ここに画面に表示する内容を書く -->
+	<div id="top">0~1000の間でランダムに生成された数字を当ててください。</div>
+	<label>入力された数字</label>
+	<div id="history">
+	</div>
+	
+	<div>
+		<label id="status">数字を入力してください。</label>
+		<br>
+		<input type="text"  id="text"/>
+		<button id="button">Go</button>
+	</div>
+	
+	
+	<script>
+		var user;
+	    var run = Math.floor(Math.random() * 1001) //0~1000のランダムの数字
+		console.log(run);
+
+		$('input:visible').eq(0).focus();   //textboxにフォーカスを当てる。
+
+		$("#button").on("click",function(){  //ボタンを押したら
+			$('input:visible').eq(0).focus(); ////textboxにフォーカスを当てる
+
+			user = $("#text").val();  //textを取得
+			console.log(user);
+
+			$("#text").val("");
+
+			if (!user){  //nullの場合
+				console.log(user);
+				$("#status").text("入力してください").css("color","red");
+
+			} else{
+				user = Number(user);  //キャスト
+				console.log(user);
+
+				if(isNaN(user)){ //数字以外の場合
+					$("#status").text("数字以外が入力されました。数字を入力してください").css("color","red");
+				
+				} else if(user < run){ //user が run より小さい場合
+					$("#status").text("数字を入力してください。").css("color","black");
+					$("#history").append(user + " 小さいです。<br>");
+
+				}else if(user > run){  //user がrun より大きい場合
+					$("#status").text("数字を入力してください。").css("color","black");
+					$("#history").append(user + " 大きいです。<br>");
+
+				} else if(user == run){  //user と run が一致
+					$("#status").text("数字を入力してください。").css("color","black");
+					$("#history").append(user + " 正解です！");
+
+				}
+			};
+			
+			//仕様の「数字を入力してください」（黒字）を表示のみコーディングができていない
+		});
+
+	</script>
+</body>
+
+</html>

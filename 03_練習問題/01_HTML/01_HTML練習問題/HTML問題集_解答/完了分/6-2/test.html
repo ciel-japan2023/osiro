@@ -1,0 +1,124 @@
+<html>
+
+<head>
+	<!-- htmlファイルと同じフォルダにあるjQuery.jsを読み込む -->
+	<script type="text/javascript" src="../common/jQuery.js"></script>
+	<!-- 文字コードをUTF-8に設定（文字化け防止） -->
+	<meta charset="UTF-8">
+	<!-- タイトル -->
+	<title>電卓</title>
+
+</head>
+
+<body>
+    <!-- ここに画面に表示する内容を書く -->
+	<div id="calculator">
+		<table>
+			<tr>
+				<td>
+					<input type="text" id="display" readonly />
+					<!-- 0ボタン -->
+					<button id="button_0">0</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	
+	<script>
+		var result = "";      //データ
+		var is_calc = false;  // =で計算したか
+
+		// 00ボタン押下時の処理
+		$("#button_00").on("click", function(){
+			formula = "00";
+			$("#display").val(formula);
+		});
+
+		// ドットボタン押下時の処理
+		$("#button_dot").on("click", function(){
+			formula = ".";
+			$("#display").val(formula);
+		});
+
+		// 1ボタン押下時の処理
+		$("#button_1").on("click", function(){
+			formula = "1";
+			$("#display").val(formula);
+		});
+
+		// 2ボタン押下時の処理
+		$("#button_2").on("click", function(){
+			formula = "2";
+			$("#display").val(formula);
+		});
+
+		// 3ボタン押下時の処理
+		$("#button_3").on("click", function(){
+			formula = "3";
+			$("#display").val(formula);
+		});
+
+		// 4ボタン押下時の処理
+		$("#button_4").on("click", function(){
+			formula = "4";
+			$("#display").val(formula);
+		});
+
+		// 5ボタン押下時の処理
+		$("#button_5").on("click", function(){
+			formula = "5";
+			$("#display").val(formula);
+		});
+
+		// 6ボタン押下時の処理
+		$("#button_6").on("click", function(){
+			formula = "6";
+			$("#display").val(formula);
+		});
+
+		// 7ボタン押下時の処理
+		$("#button_7").on("click", function(){
+			formula = "7";
+			$("#display").val(formula);
+		});
+
+		// 8ボタン押下時の処理
+		$("#button_8").on("click", function(){
+			formula = "8";
+			$("#display").val(formula);
+		});
+
+		// 9ボタン押下時の処理
+		$("#button_9").on("click", function(){
+			formula = "9";
+			$("#display").val(formula);
+		});
+
+		// 足し算ボタン押下時の処理
+		$("#button_addition").on("click", function(){
+			formula = "+";
+			$("#display").val(formula);
+		});
+
+		// 引き算ボタン押下時の処理
+		$("#button_subtraction").on("click", function(){
+			formula = "-";
+			$("#display").val(formula);
+		});
+
+		// 掛け算ボタン押下時の処理
+		$("#button_multiplication").on("click", function(){
+			formula = "×";
+			$("#display").val(formula);
+		});
+
+		// 割り算ボタン押下時の処理
+		$("#button_division").on("click", function(){
+			formula = "÷";
+			$("#display").val(formula);
+		});
+	</script>
+</body>
+
+</html>
